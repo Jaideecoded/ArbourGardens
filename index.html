@@ -98,11 +98,11 @@
                 transform: translateX(-120px) rotate(0deg);
                 opacity: 0;
             }
-            8% {
-                opacity: 0.14;
+            5% {
+                opacity: 0.2;
             }
-            92% {
-                opacity: 0.14;
+            95% {
+                opacity: 0.2;
             }
             100% {
                 transform: translateX(calc(100vw + 200px)) rotate(360deg);
@@ -114,11 +114,11 @@
                 transform: translateX(calc(100vw + 200px)) rotate(0deg);
                 opacity: 0;
             }
-            8% {
-                opacity: 0.14;
+            5% {
+                opacity: 0.2;
             }
-            92% {
-                opacity: 0.14;
+            95% {
+                opacity: 0.2;
             }
             100% {
                 transform: translateX(-120px) rotate(-360deg);
@@ -130,11 +130,11 @@
                 transform: translateY(-120px) rotate(0deg);
                 opacity: 0;
             }
-            8% {
-                opacity: 0.14;
+            5% {
+                opacity: 0.2;
             }
-            92% {
-                opacity: 0.14;
+            95% {
+                opacity: 0.2;
             }
             100% {
                 transform: translateY(calc(100vh + 200px)) rotate(360deg);
@@ -146,11 +146,11 @@
                 transform: translateY(calc(100vh + 200px)) rotate(0deg);
                 opacity: 0;
             }
-            8% {
-                opacity: 0.14;
+            5% {
+                opacity: 0.2;
             }
-            92% {
-                opacity: 0.14;
+            95% {
+                opacity: 0.2;
             }
             100% {
                 transform: translateY(-120px) rotate(-360deg);
@@ -1174,7 +1174,7 @@
             ];
 
             // ---- generate 30 doodles with random properties ----
-            const count = 32;
+            const count = 30;
             const directions = ['anim-right', 'anim-left', 'anim-down', 'anim-up'];
 
             for (let i = 0; i < count; i++) {
@@ -1198,19 +1198,19 @@
                 const dir = directions[Math.floor(Math.random() * directions.length)];
                 div.classList.add(dir);
 
-                // random duration (22s – 45s)
-                const duration = 22 + Math.random() * 28;
+                // random duration (18s – 35s)
+                const duration = 18 + Math.random() * 20;
                 div.style.animationDuration = duration + 's';
 
-                // random delay (0s – 35s) to make them "occasionally" appear
-                const delay = Math.random() * 35;
+                // random delay (0s – 8s) – much shorter so they appear quickly
+                const delay = Math.random() * 8;
                 div.style.animationDelay = delay + 's';
 
                 container.appendChild(div);
             }
 
             // also add a few static ones (without animation) for constant background texture
-            for (let i = 0; i < 12; i++) {
+            for (let i = 0; i < 15; i++) {
                 const div = document.createElement('div');
                 div.className = 'doodle-item';
                 const svgIndex = Math.floor(Math.random() * svgDoodles.length);
@@ -1220,7 +1220,7 @@
                 div.style.height = size + 'px';
                 div.style.top = Math.random() * 100 + '%';
                 div.style.left = Math.random() * 100 + '%';
-                div.style.opacity = '0.08';
+                div.style.opacity = '0.12'; // slightly visible
                 div.style.animation = 'none';
                 div.style.transform = `rotate(${Math.random() * 360}deg)`;
                 container.appendChild(div);
