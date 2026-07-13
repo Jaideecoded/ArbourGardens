@@ -86,23 +86,23 @@
         .doodle-item svg {
             width: 100%;
             height: 100%;
-            stroke: var(--dark);
+            stroke: #000000 !important; /* PURE BLACK */
             fill: none;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
-        /* ----- ANIMATIONS (drift across screen) ----- */
+        /* ----- ANIMATIONS (drift across screen) with DARK opacity ----- */
         @keyframes driftRight {
             0% {
                 transform: translateX(-120px) rotate(0deg);
                 opacity: 0;
             }
             5% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             95% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             100% {
                 transform: translateX(calc(100vw + 200px)) rotate(360deg);
@@ -115,10 +115,10 @@
                 opacity: 0;
             }
             5% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             95% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             100% {
                 transform: translateX(-120px) rotate(-360deg);
@@ -131,10 +131,10 @@
                 opacity: 0;
             }
             5% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             95% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             100% {
                 transform: translateY(calc(100vh + 200px)) rotate(360deg);
@@ -147,10 +147,10 @@
                 opacity: 0;
             }
             5% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             95% {
-                opacity: 0.2;
+                opacity: 0.6;
             }
             100% {
                 transform: translateY(-120px) rotate(-360deg);
@@ -1124,57 +1124,57 @@
         (function() {
             const container = document.getElementById('doodleContainer');
 
-            // ---- 6 hand-drawn style garden SVG doodles ----
+            // ---- 6 hand-drawn style garden SVG doodles (pure black stroke) ----
             const svgDoodles = [
                 // 1. Leafy branch
                 `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10,40 Q30,10 45,30" stroke-width="2"/>
-                    <path d="M20,25 Q30,15 35,20" stroke-width="1.5"/>
-                    <path d="M28,18 Q35,8 40,12" stroke-width="1.5"/>
-                    <path d="M15,32 Q22,24 26,28" stroke-width="1.2"/>
+                    <path d="M10,40 Q30,10 45,30" stroke-width="2.2"/>
+                    <path d="M20,25 Q30,15 35,20" stroke-width="1.8"/>
+                    <path d="M28,18 Q35,8 40,12" stroke-width="1.8"/>
+                    <path d="M15,32 Q22,24 26,28" stroke-width="1.5"/>
                 </svg>`,
 
                 // 2. Daisy flower
                 `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="25" cy="25" r="5" stroke-width="2"/>
-                    <path d="M25,8 L25,17 M25,33 L25,42 M8,25 L17,25 M33,25 L42,25 M12,12 L18,18 M32,32 L38,38 M12,38 L18,32 M32,18 L38,12" stroke-width="1.5"/>
-                    <path d="M25,30 Q25,45 30,48" stroke-width="2"/>
-                    <path d="M20,35 Q22,30 18,28" stroke-width="1.2"/>
+                    <circle cx="25" cy="25" r="5" stroke-width="2.5"/>
+                    <path d="M25,8 L25,17 M25,33 L25,42 M8,25 L17,25 M33,25 L42,25 M12,12 L18,18 M32,32 L38,38 M12,38 L18,32 M32,18 L38,12" stroke-width="1.8"/>
+                    <path d="M25,30 Q25,45 30,48" stroke-width="2.2"/>
+                    <path d="M20,35 Q22,30 18,28" stroke-width="1.5"/>
                 </svg>`,
 
                 // 3. Grass / Twig bundle
                 `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10,45 Q15,20 5,10 M20,45 Q20,30 15,15 M30,45 Q25,20 35,5 M40,45 Q35,25 45,15" stroke-width="1.5"/>
-                    <path d="M28,40 Q32,25 25,18" stroke-width="1.2"/>
+                    <path d="M10,45 Q15,20 5,10 M20,45 Q20,30 15,15 M30,45 Q25,20 35,5 M40,45 Q35,25 45,15" stroke-width="1.8"/>
+                    <path d="M28,40 Q32,25 25,18" stroke-width="1.5"/>
                 </svg>`,
 
                 // 4. Spiral vine
                 `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5,45 C5,20 25,5 35,15 C45,25 30,40 20,35 C10,30 15,15 25,15 C35,15 40,25 35,35" stroke-width="1.8"/>
-                    <path d="M12,42 Q18,38 15,32" stroke-width="1.2"/>
-                    <path d="M30,20 Q35,10 42,12" stroke-width="1.2"/>
+                    <path d="M5,45 C5,20 25,5 35,15 C45,25 30,40 20,35 C10,30 15,15 25,15 C35,15 40,25 35,35" stroke-width="2"/>
+                    <path d="M12,42 Q18,38 15,32" stroke-width="1.5"/>
+                    <path d="M30,20 Q35,10 42,12" stroke-width="1.5"/>
                 </svg>`,
 
                 // 5. Pine / Cedar tree
                 `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25,8 L15,25 L20,25 L10,42 L40,42 L30,25 L35,25 Z" stroke-width="1.8"/>
-                    <path d="M25,42 L25,48" stroke-width="2"/>
-                    <path d="M20,20 L30,20" stroke-width="1.2"/>
-                    <path d="M18,30 L32,30" stroke-width="1.2"/>
+                    <path d="M25,8 L15,25 L20,25 L10,42 L40,42 L30,25 L35,25 Z" stroke-width="2"/>
+                    <path d="M25,42 L25,48" stroke-width="2.5"/>
+                    <path d="M20,20 L30,20" stroke-width="1.5"/>
+                    <path d="M18,30 L32,30" stroke-width="1.5"/>
                 </svg>`,
 
                 // 6. Watering can & drops
                 `<svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="15" y="20" width="20" height="15" rx="2" stroke-width="1.8"/>
-                    <path d="M35,25 L45,15" stroke-width="1.8"/>
-                    <circle cx="15" cy="20" r="3" stroke-width="1.8"/>
-                    <path d="M5,5 L10,10 M3,10 L8,15 M10,5 L15,10" stroke-width="1.2"/>
-                    <path d="M8,18 L12,22" stroke-width="1.2"/>
+                    <rect x="15" y="20" width="20" height="15" rx="2" stroke-width="2"/>
+                    <path d="M35,25 L45,15" stroke-width="2"/>
+                    <circle cx="15" cy="20" r="3.5" stroke-width="2"/>
+                    <path d="M5,5 L10,10 M3,10 L8,15 M10,5 L15,10" stroke-width="1.5"/>
+                    <path d="M8,18 L12,22" stroke-width="1.5"/>
                 </svg>`
             ];
 
-            // ---- generate 30 doodles with random properties ----
-            const count = 30;
+            // ---- generate 35 doodles with random properties ----
+            const count = 35;
             const directions = ['anim-right', 'anim-left', 'anim-down', 'anim-up'];
 
             for (let i = 0; i < count; i++) {
@@ -1185,8 +1185,8 @@
                 const svgIndex = Math.floor(Math.random() * svgDoodles.length);
                 div.innerHTML = svgDoodles[svgIndex];
 
-                // random size (40px – 110px)
-                const size = 40 + Math.random() * 70;
+                // random size (50px – 130px) – slightly bigger
+                const size = 50 + Math.random() * 80;
                 div.style.width = size + 'px';
                 div.style.height = size + 'px';
 
@@ -1198,29 +1198,29 @@
                 const dir = directions[Math.floor(Math.random() * directions.length)];
                 div.classList.add(dir);
 
-                // random duration (18s – 35s)
-                const duration = 18 + Math.random() * 20;
+                // random duration (15s – 30s)
+                const duration = 15 + Math.random() * 18;
                 div.style.animationDuration = duration + 's';
 
-                // random delay (0s – 8s) – much shorter so they appear quickly
-                const delay = Math.random() * 8;
+                // random delay (0s – 5s) – very quick to appear
+                const delay = Math.random() * 5;
                 div.style.animationDelay = delay + 's';
 
                 container.appendChild(div);
             }
 
-            // also add a few static ones (without animation) for constant background texture
-            for (let i = 0; i < 15; i++) {
+            // ---- static doodles (always visible, very dark) ----
+            for (let i = 0; i < 20; i++) {
                 const div = document.createElement('div');
                 div.className = 'doodle-item';
                 const svgIndex = Math.floor(Math.random() * svgDoodles.length);
                 div.innerHTML = svgDoodles[svgIndex];
-                const size = 30 + Math.random() * 60;
+                const size = 40 + Math.random() * 70;
                 div.style.width = size + 'px';
                 div.style.height = size + 'px';
                 div.style.top = Math.random() * 100 + '%';
                 div.style.left = Math.random() * 100 + '%';
-                div.style.opacity = '0.12'; // slightly visible
+                div.style.opacity = '0.25'; // dark and visible
                 div.style.animation = 'none';
                 div.style.transform = `rotate(${Math.random() * 360}deg)`;
                 container.appendChild(div);
